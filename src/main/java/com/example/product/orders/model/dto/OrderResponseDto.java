@@ -1,5 +1,7 @@
 package com.example.product.orders.model.dto;
 
-public class ProductDto {
+import lombok.*;
 
+
+public class OrderResponseDto {
 }

@@ -1,4 +1,5 @@
 package com.example.product.orders.model.dto;
 
-public class OrderDto {
+public class OrderRequestDto {
+
 }
