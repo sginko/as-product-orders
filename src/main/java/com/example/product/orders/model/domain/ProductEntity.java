@@ -21,6 +21,10 @@ public class ProductEntity {
     @Column(unique = true)
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "id", nullable = false)
+    private OrderEntity orderEntity;
+
     private Integer quantity;
 
     public ProductEntity(String name, Integer quantity) {
