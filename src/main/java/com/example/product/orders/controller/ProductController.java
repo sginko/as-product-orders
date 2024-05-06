@@ -25,10 +25,10 @@ public class ProductController {
         return productRequestDto;
     }
 
-    @GetMapping
-    public List<ProductResponseDto> findAllProduct(){
-        return productService.findALLpProducts().stream()
-                .map(productEntity -> productMapper.fromEntity(productEntity))
-                .toList();
-    }
+//    @GetMapping
+//    public List<ProductResponseDto> findAllProduct(){
+//        return productService.findALLpProducts().stream()
+//                .map(productEntity -> productMapper.fromEntity(productEntity))
+//                .toList();
+//    }
 }
