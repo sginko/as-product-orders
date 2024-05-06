@@ -11,14 +11,14 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class OrderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true)
+//    @Column(unique = true)
     private String productName;
 
     private Integer quantityOrdered;

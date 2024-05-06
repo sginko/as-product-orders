@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class ProductEntity {
 
     @Id
@@ -21,9 +21,9 @@ public class ProductEntity {
     @Column(unique = true)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
-    private OrderEntity orderEntity;
+//    @ManyToOne
+//    @JoinColumn(name = "id", nullable = false)
+//    private OrderEntity orderEntity;
 
     private Integer quantity;
 
