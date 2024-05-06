@@ -14,10 +14,10 @@ public class ProductServiceImpl implements ProductService{
         this.productRepository = productRepository;
     }
 
-    @Override
-    public List<ProductEntity> findALLpProducts() {
-        return productRepository.findAll();
-    }
+//    @Override
+//    public List<ProductEntity> findALLpProducts() {
+//        return productRepository.findAll();
+//    }
 
     @Override
     public ProductEntity addProduct(ProductEntity productEntity) {
