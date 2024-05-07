@@ -7,6 +7,6 @@ import com.example.product.orders.model.dto.ProductResponseDto;
 import java.util.List;
 
 public interface ProductService {
-    ProductEntity addProduct(ProductRequestDto productRequestDto);
-//    List<ProductEntity> findALLpProducts();
+    void addProduct(ProductRequestDto productRequestDto);
+    List<ProductResponseDto> findAllProducts();
 }
