@@ -1,14 +1,12 @@
 package com.example.product.orders.model.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@EqualsAndHashCode
 
 @Entity
 @Table(name = "products")
@@ -21,10 +19,12 @@ public class ProductEntity {
     @Column(unique = true)
     private String name;
 
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn(name = "id", nullable = false)
 //    private OrderEntity orderEntity;
-
+// validator productu
+    //handler
+    //
     private Integer quantity;
 
     public ProductEntity(String name, Integer quantity) {
