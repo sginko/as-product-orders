@@ -2,9 +2,12 @@ package com.example.product.orders.model.service;
 
 import com.example.product.orders.model.domain.ProductEntity;
 import com.example.product.orders.model.dto.ProductRequestDto;
+import com.example.product.orders.model.dto.ProductResponseDto;
 import com.example.product.orders.model.mapper.ProductMapper;
 import com.example.product.orders.model.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -16,13 +19,15 @@ public class ProductServiceImpl implements ProductService {
         this.productMapper = productMapper;
     }
 
-//    @Override
-//    public List<ProductEntity> findALLpProducts() {
-//        return productRepository.findAll();
-//    }
+    @Override
+    public void addProduct(ProductRequestDto productRequestDto) {
+        productRepository.save(productMapper.toEntity(productRequestDto));
+    }
 
     @Override
-    public ProductEntity addProduct(ProductRequestDto productRequestDto) {
-        return productRepository.save(productMapper.toEntity(productRequestDto));
+    public List<ProductResponseDto> findAllProducts() {
+        return productRepository.findAll().stream()
+                .map(productEntity -> productMapper.fromEntity(productEntity))
+                .toList();
     }
 }
