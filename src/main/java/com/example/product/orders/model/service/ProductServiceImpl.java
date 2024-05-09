@@ -8,6 +8,7 @@ import com.example.product.orders.model.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -29,5 +30,10 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll().stream()
                 .map(productEntity -> productMapper.fromEntity(productEntity))
                 .toList();
+    }
+
+    @Override
+    public Optional<ProductEntity> findByName(String productName) {
+        return productRepository.findByName(productName);
     }
 }
