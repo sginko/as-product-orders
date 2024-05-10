@@ -2,7 +2,9 @@ package com.example.product.orders.model.service;
 
 import com.example.product.orders.model.domain.OrderEntity;
 import com.example.product.orders.model.dto.OrderRequestDto;
+import com.example.product.orders.model.dto.OrderResponseDto;
 import com.example.product.orders.model.dto.ProductRequestDto;
+import com.example.product.orders.model.dto.ProductResponseDto;
 import com.example.product.orders.model.repository.OrderRepository;
 import com.example.product.orders.model.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -71,5 +73,22 @@ class OrderServiceImplTest {
 
         //then
         assertThrows(ServiceException.class, e);
+    }
+
+    @Test
+    void should_find_all_orders_correctly() {
+        //given
+        ProductRequestDto productRequestDto = new ProductRequestDto(PRODUCT_NAME, PRODUCT_QUANTITY);
+        productService.addProduct(productRequestDto);
+        OrderRequestDto orderRequestDto = new OrderRequestDto(PRODUCT_NAME, QUANTITY_ORDERED);
+        orderService.addOrder(orderRequestDto);
+
+        //when
+        List<OrderResponseDto> allOrders = orderService.findAllOrders();
+
+        //then
+        assertEquals(allOrders.size(), 1);
+        assertThat(allOrders.get(0).getProductName()).isEqualTo(PRODUCT_NAME);
+        assertThat(allOrders.get(0).getQuantityOrdered()).isEqualTo(QUANTITY_ORDERED);
     }
 }

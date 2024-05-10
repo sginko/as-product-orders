@@ -9,4 +9,5 @@ import java.util.List;
 @Service
 public interface OrderService {
     void addOrder(OrderRequestDto orderRequestDto);
+    List<OrderResponseDto> findAllOrders();
 }

@@ -36,4 +36,9 @@ public class ProductServiceImpl implements ProductService {
     public Optional<ProductEntity> findByName(String productName) {
         return productRepository.findByName(productName);
     }
+
+    @Override
+    public void deleteProduct(ProductEntity productEntity) {
+        productRepository.delete(productEntity);
+    }
 }

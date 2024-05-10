@@ -17,8 +17,13 @@ public class OrderController {
     }
 
     @PostMapping()
-    public OrderRequestDto addProduct(@RequestBody OrderRequestDto orderRequestDto) {
+    public OrderRequestDto addOrder(@RequestBody OrderRequestDto orderRequestDto) {
         orderService.addOrder(orderRequestDto);
         return orderRequestDto;
+    }
+
+    @GetMapping
+    public List<OrderResponseDto> findAllOrders(){
+        return orderService.findAllOrders();
     }
 }
