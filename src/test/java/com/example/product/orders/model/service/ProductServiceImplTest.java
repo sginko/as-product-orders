@@ -46,7 +46,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void should_find_all_product_correctly() {
+    void should_find_all_products_correctly() {
         //given
         ProductRequestDto productRequestDto = new ProductRequestDto(NAME, QUANTITY);
         productService.addProduct(productRequestDto);

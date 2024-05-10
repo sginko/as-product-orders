@@ -12,4 +12,5 @@ public interface ProductService {
     void addProduct(ProductRequestDto productRequestDto);
     List<ProductResponseDto> findAllProducts();
     Optional<ProductEntity> findByName(String productName);
+    void deleteProduct(ProductEntity productEntity);
 }
