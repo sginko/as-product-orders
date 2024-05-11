@@ -3,6 +3,7 @@ package com.example.product.orders.controller;
 import com.example.product.orders.model.dto.OrderRequestDto;
 import com.example.product.orders.model.dto.OrderResponseDto;
 import com.example.product.orders.model.service.OrderService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
     public OrderRequestDto addOrder(@RequestBody OrderRequestDto orderRequestDto) {
         orderService.addOrder(orderRequestDto);
