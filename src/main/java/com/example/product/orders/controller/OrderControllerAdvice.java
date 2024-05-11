@@ -13,7 +13,9 @@ public class OrderControllerAdvice {
 
     @ExceptionHandler({ServiceException.class})
     public ResponseEntity<ErrorResponse> handlerJokeServiceException(Exception e){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(e.getMessage()));
+//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(e.getMessage()));
+        ErrorResponse errorResponse = new ErrorResponse(e.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
     @Getter

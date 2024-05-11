@@ -6,11 +6,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.springframework.validation.annotation.Validated;
 
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 
+@Validated
 @Entity
 @Table(name = "orders")
 public class OrderEntity {
@@ -24,7 +26,7 @@ public class OrderEntity {
     private String productName;
 
     @NotNull
-    @Min(value = 0, message = "Quantity should be greater than 0")
+    @Min(value = 1, message = "Quantity should be greater than 0")
     private Integer quantityOrdered;
 
     public OrderEntity(String productName, Integer quantityOrdered) {
